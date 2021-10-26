@@ -8,12 +8,13 @@ import express from 'express'
 const app = express()
 
 // Configure the app (app.set)
+app.set('view engine', 'ejs')
 
 // Mount Middleware (app.use)
 
 // Mount routes
 app.get('/home', function (req, res){
-  res.send("<h1> Ali's Home lol,</h1>")
+  res.render('home')
 })
 
 app.get('/', function (req, res){

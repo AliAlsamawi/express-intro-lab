@@ -1,0 +1,15 @@
+<body>
+  <h1>country</h1>
+  <% if(error) { %>
+    <h2><%= error %></h2>
+  <% } %>
+  <ul>
+    <% countries.forEach(function(countryLocation) { %>
+      <li>
+        <%= countryLocation.text %>
+          - 
+        <%= countryLocation.done ? 'done' : 'not done' %>
+      </li>
+    <% }) %>
+  </ul>
+</body>

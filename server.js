@@ -2,7 +2,9 @@
 // import modules
 
 import express from 'express'
-
+import * as countryLocation from './data/country-location.js'
+// import { find } from './data/country-location.js'
+console.log(countryLocation.find)
 // Create Express app
 
 const app = express()
@@ -19,6 +21,15 @@ app.get('/home', function (req, res){
 
 app.get('/', function (req, res){
   res.send("<h1> hello ALi,</h1>")
+})
+
+app.get('/country', function(req, res) {
+  countryLocation.find({}, function(error, countries) {
+    res.render('country/index', {
+      countries: countries,
+      error: error
+    })
+  })
 })
 
 // Tell the app to listen on port 3000
